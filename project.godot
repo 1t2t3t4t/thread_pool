@@ -25,4 +25,4 @@ project/assembly_name="thread_pool"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/threadpool/plugin.cfg")
+enabled=PackedStringArray("res://addons/threadpool/plugin.cfg", "res://addons/gut/plugin.cfg")
