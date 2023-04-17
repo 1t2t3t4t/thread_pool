@@ -1,0 +1,28 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="thread_pool"
+run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.0", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalThreadPool="*res://addons/threadpool/thread_pool.gd"
+
+[dotnet]
+
+project/assembly_name="thread_pool"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/threadpool/plugin.cfg")
