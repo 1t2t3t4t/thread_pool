@@ -46,24 +46,3 @@ func start(action: Callable) -> Task:
 	_task_semaphore.post()
 	return task
 
-
-class Task:
-
-	signal completed(result)
-
-	var _action: Callable
-
-	func _init(action: Callable) -> void:
-		self._action = action
-
-
-	static func make(action: Callable) -> Task:
-		return Task.new(action)
-
-
-	func _finish_deferred(result) -> void:
-		_finish.call_deferred(result)
-
-
-	func _finish(result) -> void:
-		completed.emit(result)
