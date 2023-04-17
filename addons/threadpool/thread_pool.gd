@@ -21,9 +21,7 @@ func _thread_execute(idx: int) -> void:
 
 		var task := _pop_task()
 		if task != null:
-			print("Start executing thread: %s" % idx)
 			task.run()
-			print("Finish executing thread: %s" % idx)
 
 
 func _push_task(task: Task) -> void:

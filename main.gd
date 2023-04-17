@@ -12,6 +12,13 @@ func _ready() -> void:
 	var results = await Task.wait_all(tasks)
 	print(results)
 
+	var samples2 := [GlobalThreadPool.start(func (): return 1),
+	GlobalThreadPool.start(func (): return 2),
+	GlobalThreadPool.start(func (): return 3)] as Array[Task]
+
+	results = await Task.wait_all(samples2)
+	print(results)
+
 
 func test(result) -> void:
 	print(result)
