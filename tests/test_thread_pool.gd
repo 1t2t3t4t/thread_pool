@@ -1,6 +1,13 @@
 extends GutTest
 
-func test_run_simple_task() -> void:
+func test_run_simple_task_str() -> void:
+	var scene := get_tree().current_scene
+	var task := GlobalThreadPool.start(func (): return "something")
+	var result = await task.completed
+	assert_eq(result, "something")
+
+
+func test_run_simple_task_int() -> void:
 	var scene := get_tree().current_scene
 	var task := GlobalThreadPool.start(func (): return 6969)
 	var result = await task.completed
