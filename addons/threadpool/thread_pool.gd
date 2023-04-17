@@ -20,10 +20,9 @@ func _thread_execute(idx: int) -> void:
 		_task_semaphore.wait()
 
 		var task := _pop_task()
-		if task != null and task._action.is_valid():
+		if task != null:
 			print("Start executing thread: %s" % idx)
-			var result = task._action.call()
-			task._finish_deferred(result)
+			task.run()
 			print("Finish executing thread: %s" % idx)
 
 
